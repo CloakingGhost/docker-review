@@ -48,8 +48,8 @@ jobs:
           docker buildx use buildkit
 
       - name: Docker Image Build
-        run: docker compose build
-        # run: docker compose build --build-arg BUILDKIT_INLINE_CACHE=1
+        # run: docker compose build
+        run: docker compose build --build-arg BUILDKIT_INLINE_CACHE=1
 
 
       - name: Login DockerHub
