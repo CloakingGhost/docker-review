@@ -36,6 +36,8 @@ services:
     image: cloakingghost/client:lts
     build: 
       context: ./client
+      args:
+        - VITE_API_URL=${VITE_API_URL}
       cache_to: 
         - type=local,dest=/tmp/.buildx-cache/client,mode=max
       cache_from: 

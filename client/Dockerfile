@@ -5,6 +5,10 @@
 FROM node AS build
 WORKDIR /app
 
+ARG VITE_API_URL
+
+ENV VITE_API_URL=$VITE_API_URL
+
 # 패키지 설치를 위한 패키지 목록 파일 복사
 COPY package.json package-lock.json ./
 
@@ -18,7 +22,7 @@ COPY . .
 RUN npm run build
 
 # Run Stage
-FROM nginx
+FROM nginx:mainline-alpine-slim
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
