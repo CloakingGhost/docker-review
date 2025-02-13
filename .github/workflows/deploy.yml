@@ -10,7 +10,10 @@ jobs:
   docker-build-push:
     runs-on: ubuntu-24.04
     steps:
-
+      # 소스 가져오기
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+        
       # 디스코드로 메세지 전송 (Channel 1)
       - name: Start Message (Channel 1)
         # 라이브러리 개발자/라이브러리 이름@버전
