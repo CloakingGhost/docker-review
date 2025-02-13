@@ -19,8 +19,10 @@ services:
     image: cloakingghost/api:lst
     build: 
       context: ./api
-      cache_to: type=local,dest=/tmp/.buildx-cache/api,mode=max
-      cache_from: type=local,src=/tmp/.buildx-cache/api
+      cache_to: 
+        - type=local,dest=/tmp/.buildx-cache/api,mode=max
+      cache_from: 
+        - type=local,src=/tmp/.buildx-cache/api
     ports:
       - 8080:8080
     env_file:
@@ -36,8 +38,10 @@ services:
     image: cloakinghost/client:lts
     build: 
       context: ./client
-      cache_to: type=local,dest=/tmp/.buildx-cache/client,mode=max
-      cache_from: type=local,src=/tmp/.buildx-cache/client
+      cache_to: 
+        - type=local,dest=/tmp/.buildx-cache/client,mode=max
+      cache_from: 
+        - type=local,src=/tmp/.buildx-cache/client
     env_file:
       - .env
     ports:
