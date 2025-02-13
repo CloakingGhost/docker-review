@@ -18,6 +18,8 @@ services:
     container_name: api-container
     build: ./api
     image: cloakingghost/api:lst
+    cache_to: type=local,dest=/tmp/.buildx-cache/backend,mode=max
+    cache_from: type=local,src=/tmp/.buildx-cache/backend
     ports:
       - 8080:8080
     env_file:
@@ -32,6 +34,8 @@ services:
     container_name: client-container
     build: ./client
     image: cloakinghost/client:lts
+    cache_to: type=local,dest=/tmp/.buildx-cache/frontend,mode=max
+    cache_from: type=local,src=/tmp/.buildx-cache/frontend
     env_file:
       - .env
     ports:
