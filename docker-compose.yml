@@ -23,8 +23,6 @@ services:
         - type=local,dest=/tmp/.buildx-cache/api,mode=max
       cache_from: 
         - type=local,src=/tmp/.buildx-cache/api
-    ports:
-      - 8080:8080
     env_file:
       - .env
     networks:
