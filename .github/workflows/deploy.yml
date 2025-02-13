@@ -21,7 +21,7 @@ jobs:
           
       - name: Create .env file
         run: |
-          echo "${{ENV_VARIABLES}}" >> .env
+          echo "${{secrets.ENV_VARIABLES}}" >> .env
           cat .env
 
       # 캐시 저장 설정을 위한 actions(라이브러리)
