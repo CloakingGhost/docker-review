@@ -44,7 +44,7 @@ jobs:
           echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
           echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
           echo "API_SERVER=${{secrets.API_SERVER}}" >> .env
-          cat .env
+
 
       # 캐시 저장 설정을 위한 actions(라이브러리)
       - name: Set up Cache Repo
