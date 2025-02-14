@@ -41,12 +41,12 @@ jobs:
           MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}
           DATABASE_HOST=${{secrets.DATABASE_HOST}}
           DATABASE_PORT=${{secrets.DATABASE_PORT}}
-          DATABASE_SCHEMA=${{secrets.MYSQL_DATABASE}}
+          DATABASE_SCHEMA=${{secrets.DATABASE_SCHEMA}}
           DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
-          DATABASE_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}
-          CLIENT_DOMAIN=${{secrets.DOMAIN}}
+          DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}
+          CLIENT_DOMAIN=${{secrets.CLIENT_DOMAIN}}
           CLIENT_PORT=${{secrets.CLIENT_PORT}}
-          CORS_ALLOWED_ORIGIN=https://${{secrets.DOMAIN}}:${{secrets.CLIENT_PORT}}
+          CORS_ALLOWED_ORIGIN=${{secrets.CORS_ALLOWED_ORIGIN}}
           VITE_API_URL=${{secrets.VITE_API_URL}}
           EOF
 

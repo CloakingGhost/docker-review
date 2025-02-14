@@ -7,12 +7,12 @@ export MYSQL_DATABASE=api
 
 export DATABASE_HOST=db-container
 export DATABASE_PORT=3306
-export DATABASE_SCHEMA=${MYSQL_DATABASE}
+export DATABASE_SCHEMA=${{secrets.MYSQL_DATABASE}}
 export DATABASE_USERNAME=root
-export DATABASE_PASSWORD=${MYSQL_ROOT_PASSWORD}
-export CLIENT_DOMAIN=${DOMAIN}
+export DATABASE_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}
+export CLIENT_DOMAIN=${{secrets.DOMAIN}}
 export CLIENT_PORT=443
-export CORS_ALLOWED_ORIGIN=https://${CLIENT_DOMAIN}:${CLIENT_PORT}
+export CORS_ALLOWED_ORIGIN=https://${{secrets.CLIENT_DOMAIN}}:${{secrets.CLIENT_PORT}}
 
 
 export VITE_API_URL=/api
@@ -54,12 +54,12 @@ unset VITE_API_URL
           echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
           echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> .env
           echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> .env
-          echo "DATABASE_SCHEMA=${MYSQL_DATABASE}" >> .env
+          echo "DATABASE_SCHEMA=${{secrets.MYSQL_DATABASE}}" >> .env
           echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
-          echo "DATABASE_PASSWORD=${MYSQL_ROOT_PASSWORD}" >> .env
-          echo "CLIENT_DOMAIN=${DOMAIN}" >> .env
+          echo "DATABASE_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
+          echo "CLIENT_DOMAIN=${{secrets.DOMAIN}}" >> .env
           echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
-          echo "CORS_ALLOWED_ORIGIN=https://${CLIENT_DOMAIN}:${CLIENT_PORT}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=https://${{secrets.DOMAIN}}:${{secrets.CLIENT_PORT}}" >> .env
           echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
 
 
