@@ -42,6 +42,7 @@ jobs:
           echo "DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}" >> .env
           echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
           echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
+          echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
           cat .env
 
       # 캐시 저장 설정을 위한 actions(라이브러리)
