@@ -34,19 +34,22 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
-          echo "API_SERVER=${{secrets.API_SERVER}}" >> .env
-          echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
-          echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
-          echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> .env
-          echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> .env
-          echo "DATABASE_SCHEMA=${MYSQL_DATABASE}" >> .env
-          echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
-          echo "DATABASE_PASSWORD=${MYSQL_ROOT_PASSWORD}" >> .env
-          echo "CLIENT_DOMAIN=${DOMAIN}" >> .env
-          echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
-          echo "CORS_ALLOWED_ORIGIN=https://${CLIENT_DOMAIN}:${CLIENT_PORT}" >> .env
-          echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
+          cat <<EOF > .env
+          DOMAIN=${{secrets.DOMAIN}}
+          API_SERVER=${{secrets.API_SERVER}}
+          MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}
+          MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}
+          DATABASE_HOST=${{secrets.DATABASE_HOST}}
+          DATABASE_PORT=${{secrets.DATABASE_PORT}}
+          DATABASE_SCHEMA=${{secrets.MYSQL_DATABASE}}
+          DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
+          DATABASE_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}
+          CLIENT_DOMAIN=${{secrets.DOMAIN}}
+          CLIENT_PORT=${{secrets.CLIENT_PORT}}
+          CORS_ALLOWED_ORIGIN=https://${{secrets.DOMAIN}}:${{secrets.CLIENT_PORT}}
+          VITE_API_URL=${{secrets.VITE_API_URL}}
+          EOF
+
 
 
       # 캐시 저장 설정을 위한 actions(라이브러리)
