@@ -40,6 +40,9 @@ jobs:
           echo "DATABASE_SCHEMA=${{secrets.DATABASE_SCHEMA}}" >> .env
           echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
           echo "DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=${{secrets.CORS_ALLOWED_ORIGIN}}" >> .env
+          echo "CLIENT_DOMAIN=${{secrets.CLIENT_DOMAIN}}" >> .env
+          echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
           echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
           echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
           echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
