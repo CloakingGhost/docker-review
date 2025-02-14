@@ -46,3 +46,18 @@ unset CLIENT_DOMAIN
 unset CLIENT_PORT
 unset CORS_ALLOWED_ORIGIN
 unset VITE_API_URL
+
+
+          echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
+          echo "API_SERVER=${{secrets.API_SERVER}}" >> .env
+          echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
+          echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
+          echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> .env
+          echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> .env
+          echo "DATABASE_SCHEMA=${MYSQL_DATABASE}" >> .env
+          echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
+          echo "DATABASE_PASSWORD=${MYSQL_ROOT_PASSWORD}" >> .env
+          echo "CLIENT_DOMAIN=${DOMAIN}" >> .env
+          echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=https://${CLIENT_DOMAIN}:${CLIENT_PORT}" >> .env
+          echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
