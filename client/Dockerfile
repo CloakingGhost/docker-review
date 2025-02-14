@@ -26,7 +26,7 @@ EXPOSE 80 443
 # Run Stage
 FROM nginx:mainline-alpine-slim
 
-# COPY conf.d /etc/nginx/conf.d/
+COPY conf.d /etc/nginx/conf.d/
 COPY templates /etc/nginx/templates/*.template
 COPY nginx.conf /etc/nginx/nginx.conf
 
