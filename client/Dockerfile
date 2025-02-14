@@ -20,7 +20,9 @@ COPY . .
 
 # 프로젝트 빌드
 RUN npm run build
-
+# 포트 명시
+# 문서화 목적
+EXPOSE 80 443
 # Run Stage
 FROM nginx:mainline-alpine-slim
 
@@ -31,8 +33,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Build Stage에서 빌드 결과물(정적 파일) 복사
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# 포트 명시
-# 문서화 목적
-EXPOSE 80 443
+
 
 CMD ["nginx", "-g", "daemon off;"] 
