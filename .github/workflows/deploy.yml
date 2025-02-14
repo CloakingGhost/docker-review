@@ -49,7 +49,7 @@ jobs:
           echo "# Fronted" >> .env
           echo "CLIENT_DOMAIN=${{secrets.DOMAIN}}" >> .env
           echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
-          echo "CORS_ALLOWED_ORIGIN=https://${{secrets.DOMAIN}}:${{secrets.CLIENT_PORT}}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=https://${{secrets.DOMAIN}}" >> .env
           echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
 
 
