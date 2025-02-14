@@ -16,13 +16,13 @@ services:
       start_period: 30s
   api:
     container_name: api-container
-    image: cloakingghost/api:lst
     build: 
       context: ./api
       cache_to: 
         - type=local,dest=/tmp/.buildx-cache/api,mode=max
       cache_from: 
         - type=local,src=/tmp/.buildx-cache/api
+    image: cloakingghost/api:lst
     env_file:
       - .env
     networks:
@@ -33,7 +33,6 @@ services:
         condition: service_healthy
   client:
     container_name: client-container
-    image: cloakingghost/client:lts
     build: 
       context: ./client
       args:
@@ -42,6 +41,7 @@ services:
         - type=local,dest=/tmp/.buildx-cache/client,mode=max
       cache_from: 
         - type=local,src=/tmp/.buildx-cache/client
+    image: cloakingghost/client:lts
     env_file:
       - .env
     ports:
