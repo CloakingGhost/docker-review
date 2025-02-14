@@ -27,7 +27,7 @@ EXPOSE 80 443
 FROM nginx:mainline-alpine-slim
 
 COPY conf.d /etc/nginx/conf.d/
-COPY templates /etc/nginx/templates/*.template
+# COPY templates /etc/nginx/templates/*.template
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Build Stage에서 빌드 결과물(정적 파일) 복사
