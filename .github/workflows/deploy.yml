@@ -34,21 +34,19 @@ jobs:
 
       - name: Create .env file
         run: |
-          cat <<EOF > .env
-          DOMAIN=${{secrets.DOMAIN}}
-          API_SERVER=${{secrets.API_SERVER}}
-          MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}
-          MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}
-          DATABASE_HOST=${{secrets.DATABASE_HOST}}
-          DATABASE_PORT=${{secrets.DATABASE_PORT}}
-          DATABASE_SCHEMA=${{secrets.DATABASE_SCHEMA}}
-          DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
-          DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}
-          CLIENT_DOMAIN=${{secrets.CLIENT_DOMAIN}}
-          CLIENT_PORT=${{secrets.CLIENT_PORT}}
-          CORS_ALLOWED_ORIGIN=${{secrets.CORS_ALLOWED_ORIGIN}}
-          VITE_API_URL=${{secrets.VITE_API_URL}}
-          EOF
+          echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
+          echo "API_SERVER=${{secrets.API_SERVER}}" >> .env
+          echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
+          echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
+          echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> .env
+          echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> .env
+          echo "DATABASE_SCHEMA=${{secrets.DATABASE_SCHEMA}}" >> .env
+          echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
+          echo "DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}" >> .env
+          echo "CLIENT_DOMAIN=${{secrets.CLIENT_DOMAIN}}" >> .env
+          echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=${{secrets.CORS_ALLOWED_ORIGIN}}" >> .env
+          echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
 
 
 
