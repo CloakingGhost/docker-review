@@ -5,6 +5,7 @@ import com.example.api.dto.MemoResponseDto;
 import com.example.api.service.MemoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -16,6 +17,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemoController {
     private final MemoService memoService;
+    @Value("${cors.allowed-origins}")
+    private String allowedOrigins;
+
+    @GetMapping("/test")
+    public String test(){
+
+        return allowedOrigins;
+    }
 
     @PostMapping
     public ResponseEntity<MemoResponseDto> createMemo(@RequestBody MemoRequestDto requestDto) {

@@ -38,6 +38,9 @@ dependencies {
 	implementation 'me.paulschwarz:spring-dotenv:4.0.0'
 	// Lombok 어노테이션 프로세서
 	annotationProcessor 'org.projectlombok:lombok'
+	// AWS S3 서비스 버킷과 상호작용을 위한 의존성
+	implementation 'software.amazon.awssdk:s3:2.20.12'
+
 	// 스프링 부트 테스트를 위한 의존성
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// JUnit 테스트 실행을 위한 런처
