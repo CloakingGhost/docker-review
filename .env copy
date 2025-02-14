@@ -47,19 +47,41 @@ unset CLIENT_PORT
 unset CORS_ALLOWED_ORIGIN
 unset VITE_API_URL
 
+가능
+기존 시크릿으로 다른 시크릿의 값으로 활용될 수 있음
+          echo "# EC2" >> .env
+          echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
+          echo "API_SERVER=${{secrets.API_SERVER}}" >> .env
+          echo "# DB" >> .env
+          echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
+          echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
+          echo "# Backend" >> .env
+          echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> .env
+          echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> .env
+          echo "DATABASE_SCHEMA=${{secrets.MYSQL_DATABASE}}" >> .env
+          echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
+          echo "DATABASE_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
+          echo "# Fronted" >> .env
+          echo "CLIENT_DOMAIN=${{secrets.DOMAIN}}" >> .env
+          echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=https://${{secrets.DOMAIN}}:${{secrets.CLIENT_PORT}}" >> .env
+          echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
 
+안됨
+시크릿을 시크릿으로 등록이 불가능
+읽으면서 불가능한 치환이라고 에러나옴
           echo "DOMAIN=${{secrets.DOMAIN}}" >> .env
           echo "API_SERVER=${{secrets.API_SERVER}}" >> .env
           echo "MYSQL_ROOT_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
           echo "MYSQL_DATABASE=${{secrets.MYSQL_DATABASE}}" >> .env
           echo "DATABASE_HOST=${{secrets.DATABASE_HOST}}" >> .env
           echo "DATABASE_PORT=${{secrets.DATABASE_PORT}}" >> .env
-          echo "DATABASE_SCHEMA=${{secrets.MYSQL_DATABASE}}" >> .env
+          echo "DATABASE_SCHEMA=${{secrets.DATABASE_SCHEMA}}" >> .env
           echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
-          echo "DATABASE_PASSWORD=${{secrets.MYSQL_ROOT_PASSWORD}}" >> .env
-          echo "CLIENT_DOMAIN=${{secrets.DOMAIN}}" >> .env
+          echo "DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}" >> .env
+          echo "CLIENT_DOMAIN=${{secrets.CLIENT_DOMAIN}}" >> .env
           echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
-          echo "CORS_ALLOWED_ORIGIN=https://${{secrets.DOMAIN}}:${{secrets.CLIENT_PORT}}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=${{secrets.CORS_ALLOWED_ORIGIN}}" >> .env
           echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
 
 
