@@ -43,11 +43,10 @@ jobs:
           echo "DATABASE_SCHEMA=${{secrets.DATABASE_SCHEMA}}" >> .env
           echo "DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}" >> .env
           echo "DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}" >> .env
+          echo "CORS_ALLOWED_ORIGIN=${{secrets.CORS_ALLOWED_ORIGIN}}" >> .env
           echo "CLIENT_DOMAIN=${{secrets.CLIENT_DOMAIN}}" >> .env
           echo "CLIENT_PORT=${{secrets.CLIENT_PORT}}" >> .env
-          echo "CORS_ALLOWED_ORIGIN=${{secrets.CORS_ALLOWED_ORIGIN}}" >> .env
           echo "VITE_API_URL=${{secrets.VITE_API_URL}}" >> .env
-
 
 
       # 캐시 저장 설정을 위한 actions(라이브러리)
